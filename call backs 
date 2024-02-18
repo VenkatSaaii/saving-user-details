@@ -1,0 +1,42 @@
+//callbacks 
+// function learnJavaScript(callback){
+//     setTimeout(function(){
+//         console.log("Learned JavaScript");
+//         callback();
+//     },2000);
+
+// }
+
+// function learnReact(){
+//     setTimeout(function(){
+//         console.log("React Learned");
+//     },1000);
+// }
+
+// learnJavaScript(learnReact)
+
+
+//  Promises for the javscript 
+
+
+function bikeRide(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(function(){
+            const bikePromise = Math.random() >0.5;
+            if(bikePromise){
+                resolve('bike repared')
+            }else{
+                reject('bike not repaired')
+            }
+        },3000)
+    })
+}
+
+bikeRide()
+.then((result)=>{
+    console.log(result)
+})
+
+.catch((error)=>{
+    console.log(error)
+})

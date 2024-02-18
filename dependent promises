@@ -1,0 +1,65 @@
+function checkCar() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        let carCheck = Math.random() > 0.5;
+        if (carCheck) {
+          resolve('Car is ready');
+        } else {
+          reject('Error: Car needs maintenance');
+        }
+      }, 2000);
+    });
+  }
+  
+  function packForPicnic() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        let pickEss = Math.random() > 0.5;
+        if (pickEss) {
+          resolve('Packed everything for picnic');
+        } else {
+          reject('Error: Not have some essentials');
+        }
+      }, 1000);
+    });
+  }
+
+//   checkCar()
+//   .then(function(carc){
+//     console.log(carc);
+//     return packForPicnic();
+//   })
+//   .then(function(essc){
+//     console.log(essc)
+//     console.log('Go for picnic')
+//   })
+// .catch(function(err){
+//     console.log(err);
+//     console.log('Picnic cancelledm')
+// })
+  
+// Promise.all([checkCar(), packForPicnic()])
+//   .then(function (responses) {
+//     console.log(responses[0]);
+//     console.log(responses[1]);
+//     console.log('Go for picnic');
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//     console.log('Picnic cancelled');
+//   })
+checkCar()
+.then(function(carche){
+  console.log(carche)
+  return packForPicnic()
+})
+  .then(function(pickcheck){
+    console.log(pickcheck)
+    console.log('Go for picnic')
+  })
+  
+.catch(function(err){
+  console.log(err)
+  console.log('Picnic cancelled')
+})
+
